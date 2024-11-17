@@ -1,0 +1,31 @@
+{
+  "portfolio": [
+    {
+      "cover": "/portfolio/one.jpg",
+      "title": "Lipsum",
+      "description": "React, Tailwind",
+      "url": "http://google.com"
+    },
+    {
+      "cover": "/portfolio/one.jpg",
+      "title": "Lipsum",
+      "description": "React, Tailwind",
+      "url": "http://google.com"
+    },
+    {
+      "cover": "/portfolio/one.jpg",
+      "title": "Lipsum",
+      "description": "React, Tailwind",
+      "url": "http://google.com"
+    },
+    {
+      "cover": "/portfolio/one.jpg",
+      "title": "Lipsum",
+      "description": "React, Tailwind",
+      "url": "http://google.com"
+    }
+  ]
+}
+
+  
+  
