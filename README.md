@@ -16,7 +16,7 @@ This portfolio serves as a personalized platform to highlight my expertise, show
 
 To run this portfolio locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/your-username/your-portfolio.git](https://github.com/imtaki/Portfolio-Website.git)`
+1. Clone the repository: `git clone https://github.com/imtaki/Portfolio-Website.git`
 2. Navigate to the project directory: `cd Portfolio-Website`
 3. Install dependencies: `npm install`
 4. Start the development server: `npm start`
