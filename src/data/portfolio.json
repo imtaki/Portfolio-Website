@@ -1,28 +1,16 @@
 {
   "portfolio": [
     {
-      "cover": "/portfolio/one.jpg",
-      "title": "Lipsum",
-      "description": "React, Tailwind",
-      "url": "http://google.com"
+      "cover": "/portfolio/pawpal.png",
+      "title": "PawPal",
+      "description": "React, Tailwind, Node, Express, MongoDB",
+      "url": "https://github.com/imtaki/PawPal"
     },
     {
       "cover": "/portfolio/one.jpg",
-      "title": "Lipsum",
-      "description": "React, Tailwind",
-      "url": "http://google.com"
-    },
-    {
-      "cover": "/portfolio/one.jpg",
-      "title": "Lipsum",
-      "description": "React, Tailwind",
-      "url": "http://google.com"
-    },
-    {
-      "cover": "/portfolio/one.jpg",
-      "title": "Lipsum",
-      "description": "React, Tailwind",
-      "url": "http://google.com"
+      "title": "FitLife",
+      "description": "Vue, Tailwind",
+      "url": "http://github.com/imtaki/FitLife"
     }
   ]
 }
