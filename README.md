@@ -1,7 +1,7 @@
 # Portfolio Website
 Welcome to my coding portfolio! This web application is built using ReactJs with Sass styling, showcasing my skills, projects, and achievements in the field of web development. You can check it out [here!](https://dominik-takac.vercel.app/)
 
-[![temp-Imagev0-PHEz.avif](https://i.postimg.cc/XYDvJZDj/temp-Imagev0-PHEz.avif)](https://postimg.cc/jDPT3jbm)
+<img src="websitescreenshot.png">
 
 
 ## Introduction
