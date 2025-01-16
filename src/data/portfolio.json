@@ -7,10 +7,16 @@
       "url": "https://github.com/imtaki/PawPal"
     },
     {
-      "cover": "/portfolio/one.jpg",
+      "cover": "/portfolio/fitlife.webp",
       "title": "FitLife",
       "description": "Vue, Tailwind",
       "url": "http://github.com/imtaki/FitLife"
+    },
+    {
+      "cover": "/portfolio/one.jpg",
+      "title": "Next.js Prisma Auth",
+      "description": "Next.js, Tailwind, Prisma, Postgres",
+      "url": "https://github.com/imtaki/NextJSAuth"
     }
   ]
 }
