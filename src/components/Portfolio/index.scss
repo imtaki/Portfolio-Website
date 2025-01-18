@@ -106,4 +106,15 @@
         }
     } 
 
-}   
+} 
+
+@media screen and (max-width: 768px) {
+    .portfolio-page {
+      .image-box {
+        .title {
+          font-size: 20px; // Slightly smaller font for mobile
+          padding-bottom: 5px; // Add some spacing
+        }
+      }
+    }
+  }

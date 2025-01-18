@@ -1,0 +1,18 @@
+@media screen and (max-width: 1000px) {
+    .contact-page {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+
+    .icon-links {
+        position: static;
+        transform: none;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+}

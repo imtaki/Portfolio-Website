@@ -43,7 +43,7 @@ export default function SideBar () {
                 </a>
             </li>
          </ul>
-         <FaBars  className='hamburger-icon'
+         <FaBars size={30} className='hamburger-icon'
             onClick={() => setShowNav(true)}
          />
       </div>
