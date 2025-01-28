@@ -7,14 +7,21 @@ body {
   font: 300 11px/1.4 'Helvetica Neue', 'sans-serif'; 
   color: #444; 
   height: 100%;
+  min-height: 100vh;
   background: linear-gradient(to bottom, #006efd 20%, #02a9ca 80%);
+  background-attachment: fixed;
+  background-size: cover;
   display: block;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 1000px) {
   body {
     overflow: visible;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #006efd 20%, #02a9ca 80%) fixed;
+    background-size: cover;
   }
 }
+
