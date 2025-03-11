@@ -1,12 +1,12 @@
 .tech-stack {
   width: 100%;
   margin-top: 20px;
-  padding-bottom: 20px; 
+  padding-bottom: 20px;
   color: #ffd700;
 
   h2 {
     font-size: 26px;
-    font-family: 'Coolvetica';
+    font-family: 'Coolvetica', serif;
     margin-bottom: 20px;
     color: #ffd700;
   }
@@ -16,9 +16,9 @@
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 15px; 
+    gap: 15px;
     justify-content: flex-start;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
     max-width: 600px;
   }
 
@@ -30,16 +30,17 @@
     font-size: 18px;
     font-family: sans-serif;
     background: rgba(255, 255, 255, 0.1);
-    padding: 12px; 
+    padding: 12px;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
-    transition: transform 0.3s ease, color 0.3s ease;
-    width: 110px; 
-    margin-bottom: 10px; 
+    transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    width: 110px;
+    margin-bottom: 10px;
 
     .tech-icon {
       font-size: 35px;
-      margin-bottom: 8px; 
+      margin-bottom: 8px;
+      transition: transform 0.3s ease;
     }
 
     &:hover {
@@ -47,6 +48,10 @@
       transform: scale(1.1);
       background: #4d4d4e;
       box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+
+      .tech-icon {
+        transform: translateY(-2px);
+      }
     }
 
     p {
@@ -56,6 +61,3 @@
     }
   }
 }
-
-
-  
