@@ -17,6 +17,18 @@
       "title": "Next.js Prisma Auth",
       "description": "Next.js, Tailwind, Prisma, Postgres",
       "url": "https://github.com/imtaki/NextJSAuth"
+    },
+    {
+      "cover": "/portfolio/codehaven.jpeg",
+      "title": "CodeHaven - Code Collaboration Platform",
+      "description": "Next.js, Tailwind, Postgres, WebSockets",
+      "url": "TBD"
+    },
+     {
+      "cover": "/portfolio/logo.png",
+      "title": "KimaOffice - Accounting Landing Page",
+      "description": "Next.js, Tailwind, i18-n, ShadCN UI",
+      "url": "TBD"
     }
   ]
 }
