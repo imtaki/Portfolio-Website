@@ -85,6 +85,12 @@
             font-size: 8px;
         }
     }
+    a.work-link {
+        &::after {
+            content: "WORK";
+            font-size: 8px;
+        }
+    }
     a.active {
         svg {
             color: #ffd700;

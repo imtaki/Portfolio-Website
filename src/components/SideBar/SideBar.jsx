@@ -2,6 +2,7 @@ import './index.scss';
 import { Link, NavLink } from 'react-router-dom';
 import { FaHome, FaUser, FaEnvelope, FaGithubSquare, FaLinkedin, FaBars } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
+import { MdOutlineWork } from "react-icons/md";
 import { IoFileTrayFull } from "react-icons/io5";
 import Logo from '../../assets/images/logo.png';
 import LogoSub from '../../assets/images/sub-logo.png'
@@ -25,6 +26,9 @@ export default function SideBar () {
             </NavLink>
             <NavLink onClick={() => setShowNav(false)} activeClassName="active" className="portfolio-link" to="/portfolio">
                <IoFileTrayFull color='#4d4d4e'/>
+            </NavLink>
+            <NavLink onClick={() => setShowNav(false)} activeClassName="active" className="work-link" to="/work">
+               <MdOutlineWork color='#4d4d4e'/>
             </NavLink>
             <NavLink onClick={() => setShowNav(false)} activeClassName="active" className="contact-link" to="/contact">
                <FaEnvelope color='#4d4d4e'/>

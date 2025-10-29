@@ -5,6 +5,7 @@ import Home from './components/Home/Home';
 import About from './components/About/About'
 import Contact from './components/Contact/Contact';
 import Portfolio from './components/Portfolio/Portfolio';
+import Work from './components/Work';
 
 export default function App() {
     return (
@@ -15,6 +16,7 @@ export default function App() {
                     <Route path='/about' element={<About />}/>
                     <Route path='/contact' element={<Contact />}/>
                     <Route path='/portfolio' element={<Portfolio />}/>
+                    <Route path='/work' element={< Work/>}/>
                 </Route>
             </Routes>
         </>
