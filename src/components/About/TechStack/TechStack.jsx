@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import './index.scss';
 import AnimatedLetters from "../../AnimatedLetters/AnimatedLetters.jsx";
 
@@ -7,7 +7,10 @@ const TechStack = () => {
   const [techItemsLoaded, setTechItemsLoaded] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [animatingIndices, setAnimatingIndices] = useState(new Set());
-  const [activeLines, setActiveLines] = useState(new Set());
+  const [activePath, setActivePath] = useState(null);
+  
+  const currentPathIndexRef = useRef(0);
+  const timeoutsRef = useRef([]);
 
   useEffect(() => {
     const letterTimer = setTimeout(() => {
@@ -24,50 +27,52 @@ const TechStack = () => {
     };
   }, []);
 
-  
   const animatedPath = [
-    { from: 0, to: 1, duration: 4000 },  // React to NextJS
-    { from: 1, to: 7, duration: 4000 },  // NextJS to CSS3
-    { from: 7, to: 12, duration: 4000 }, // CSS3 to JavaScript
-    { from: 12, to: 17, duration: 4000 } // JavaScript to Laravel
+    { from: 0, to: 1, duration: 4000 },    // React to NextJS
+    { from: 1, to: 7, duration: 4000 },    // NextJS to CSS3
+    { from: 7, to: 12, duration: 4000 },   // CSS3 to JavaScript
+    { from: 12, to: 15, duration: 4000 },  // JavaScript to Git
+    { from: 15, to: 17, duration: 4000 }   // Git to Laravel
   ];
 
-  
   useEffect(() => {
-    let currentPathIndex = 0;
-    let animationTimeout;
-
-    const animateNextPath = () => {
-      const path = animatedPath[currentPathIndex];
-      
-      setActiveLines(new Set([currentPathIndex]));
-      
-      setAnimatingIndices(new Set([path.from]));
-      
-    
-      setTimeout(() => {
-        setAnimatingIndices(new Set([path.to]));
-      }, path.duration / 2);
-      
-      
-      animationTimeout = setTimeout(() => {
-        setAnimatingIndices(new Set());
-        setActiveLines(new Set());
-        
-        
-        currentPathIndex = (currentPathIndex + 1) % animatedPath.length;
-        
-        
-        setTimeout(animateNextPath, 500);
-      }, path.duration);
+    const clearAllTimeouts = () => {
+      timeoutsRef.current.forEach(timeout => clearTimeout(timeout));
+      timeoutsRef.current = [];
     };
 
-    // Start the animation cycle
+    const animateNextPath = () => {
+      const path = animatedPath[currentPathIndexRef.current];
+      
+      // Set active path and start animation
+      setActivePath(currentPathIndexRef.current);
+      setAnimatingIndices(new Set([path.from]));
+      
+      // Animate the destination node halfway through
+      const midpointTimeout = setTimeout(() => {
+        setAnimatingIndices(new Set([path.to]));
+      }, path.duration / 2);
+      timeoutsRef.current.push(midpointTimeout);
+      
+      // Clear animations and move to next path
+      const endTimeout = setTimeout(() => {
+        setActivePath(null);
+        setAnimatingIndices(new Set());
+        
+        currentPathIndexRef.current = (currentPathIndexRef.current + 1) % animatedPath.length;
+        
+        // Small pause before next animation
+        const nextTimeout = setTimeout(animateNextPath, 500);
+        timeoutsRef.current.push(nextTimeout);
+      }, path.duration);
+      timeoutsRef.current.push(endTimeout);
+    };
+
     const startTimeout = setTimeout(animateNextPath, 1000);
+    timeoutsRef.current.push(startTimeout);
 
     return () => {
-      clearTimeout(startTimeout);
-      clearTimeout(animationTimeout);
+      clearAllTimeouts();
     };
   }, []);
 
@@ -105,42 +110,63 @@ const TechStack = () => {
     'div25'
   ];
 
+  // Get center position of grid item accounting for grid gaps
   const getGridPosition = (index) => {
-  // Map based on the actual grid-area definitions
-  const gridMap = {
-    0: { col: 1, row: 1 },   // div1
-    1: { col: 2, row: 1 },   // div2
-    2: { col: 3, row: 1 },   // div3
-    3: { col: 4, row: 1 },   // div4
-    4: { col: 5, row: 1 },   // div5
-    5: { col: 6, row: 1 },   // div6
-    6: { col: 1, row: 2 },   // div7
-    7: { col: 2, row: 3 },   // div8
-    8: { col: 3, row: 3 },   // div9
-    9: { col: 4, row: 2 },   // div10
-    10: { col: 5, row: 3 },  // div11
-    11: { col: 6, row: 3 },  // div12
-    12: { col: 4, row: 4 },  // div13
-    13: { col: 5, row: 4 },  // div14
-    14: { col: 6, row: 4 },  // div15
-    15: { col: 4, row: 5 },  // div16
-    16: { col: 5, row: 5 },  // div17
-    17: { col: 5, row: 6 },  // div18
-    18: { col: 6, row: 6 },  // div19
-    19: { col: 1, row: 4 },  // div20
-    20: { col: 1, row: 5 },  // div21
-    21: { col: 2, row: 5 },  // div22
-    22: { col: 1, row: 6 },  // div23
-    23: { col: 2, row: 6 },  // div24
-    24: { col: 3, row: 6 },  // div25
+    const gridMap = {
+      0: { col: 1, row: 1 },
+      1: { col: 2, row: 1 },
+      2: { col: 3, row: 1 },
+      3: { col: 4, row: 1 },
+      4: { col: 5, row: 1 },
+      5: { col: 6, row: 1 },
+      6: { col: 1, row: 2 },
+      7: { col: 2, row: 3 },
+      8: { col: 3, row: 3 },
+      9: { col: 4, row: 2 },
+      10: { col: 5, row: 3 },
+      11: { col: 6, row: 3 },
+      12: { col: 4, row: 4 },
+      13: { col: 5, row: 4 },
+      14: { col: 6, row: 4 },
+      15: { col: 4, row: 5 },
+      16: { col: 5, row: 5 },
+      17: { col: 5, row: 6 },
+      18: { col: 6, row: 6 },
+      19: { col: 1, row: 4 },
+      20: { col: 1, row: 5 },
+      21: { col: 2, row: 5 },
+      22: { col: 1, row: 6 },
+      23: { col: 2, row: 6 },
+      24: { col: 3, row: 6 },
+    };
+
+    const pos = gridMap[index];
+    const cellSize = 100 / 6; // 6 columns
+    const gapSize = 2.86; // approximate gap in percentage
+    
+    // Center of the cell accounting for gap
+    const x = (pos.col - 0.5) * cellSize + gapSize / 2;
+    const y = (pos.row - 0.5) * cellSize + gapSize / 2;
+    
+    return { x, y };
   };
-  
-  const pos = gridMap[index];
-  return {
-    x: (pos.col / 7) * 100,  // 7 because grid is 1-6, normalize to 0-100%
-    y: (pos.row / 7) * 100   // 7 because grid is 1-6
+
+  // Generate quadratic bezier curve path
+  const generateCurvePath = (fromPos, toPos) => {
+    const dx = toPos.x - fromPos.x;
+    const dy = toPos.y - fromPos.y;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+    
+    // Control point offset for curve - larger distance = bigger curve
+    const offsetDistance = distance * 0.3;
+    const angle = Math.atan2(dy, dx);
+    const perpAngle = angle + Math.PI / 2;
+    
+    const controlX = (fromPos.x + toPos.x) / 2 + Math.cos(perpAngle) * offsetDistance;
+    const controlY = (fromPos.y + toPos.y) / 2 + Math.sin(perpAngle) * offsetDistance;
+    
+    return `M ${fromPos.x} ${fromPos.y} Q ${controlX} ${controlY} ${toPos.x} ${toPos.y}`;
   };
-};
 
   return (
     <div className="tech-stack">
@@ -153,20 +179,27 @@ const TechStack = () => {
       </h1>
 
       <div className="floating-icons-container">
-        <svg className="connection-lines" width="100%" height="100%" preserveAspectRatio="none">
+        <svg 
+          className="connection-lines" 
+          width="100%" 
+          height="100%" 
+          preserveAspectRatio="none"
+          viewBox="0 0 100 100"
+        >
           {animatedPath.map((path, idx) => {
             const fromPos = getGridPosition(path.from);
             const toPos = getGridPosition(path.to);
+            const pathD = generateCurvePath(fromPos, toPos);
+            
             return (
               <g key={idx}>
-                {/* Animated flowing line - only shows when active */}
-                <line
-                  className={`connection-line-animated ${activeLines.has(idx) ? 'active' : ''}`}
-                  x1={`${fromPos.x}%`}
-                  y1={`${fromPos.y}%`}
-                  x2={`${toPos.x}%`}
-                  y2={`${toPos.y}%`}
-                />
+                {/* Only render when active */}
+                {activePath === idx && (
+                  <path
+                    className="connection-line-animated active"
+                    d={pathD}
+                  />
+                )}
               </g>
             );
           })}

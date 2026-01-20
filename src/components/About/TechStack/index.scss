@@ -27,49 +27,49 @@
   }
 
   .connection-lines {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
 
-    .connection-line-animated {
-      stroke: rgba(0, 0, 0, 0.7);
-      stroke-width: 2.5;
-      stroke-linecap: round;
-      fill: none;
-      stroke-dasharray: 300;
-      stroke-dashoffset: 300;
-      opacity: 0;
-      
-      &.active {
-        animation: lineFlow 4s ease-in-out infinite;
-      }
+  .connection-line-animated {
+    stroke: rgba(0, 0, 0, 0.7);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    
+    &.active {
+      animation: lineFlow 4s ease-in-out forwards;
     }
   }
+}
 
-  @keyframes lineFlow {
-    0% {
-      stroke-dashoffset: 300;
-      opacity: 0;
-    }
-    10% {
-      opacity: 1;
-    }
-    50% {
-      stroke-dashoffset: 0;
-      opacity: 1;
-    }
-    90% {
-      opacity: 1;
-    }
-    100% {
-      stroke-dashoffset: -300;
-      opacity: 0;
-    }
+@keyframes lineFlow {
+  0% {
+    stroke-dashoffset: 100;
+    opacity: 0;
   }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: -100;
+    opacity: 0;
+  }
+}
 
   .tech-item {
     display: flex;
