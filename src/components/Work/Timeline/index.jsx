@@ -4,7 +4,7 @@ import './index.scss';
 export default function Timeline() {
   const [events, setEvents] = useState([
     {
-      date: 'May 2025 - ongoing',
+      date: 'May 2025 - March 2026',
       title: 'Multitude IT Labs s.r.o',
       description: [
       'Developed and executed <b>automated</b> and <b>manual tests</b> to validate application functionality and performance across multiple environments',
