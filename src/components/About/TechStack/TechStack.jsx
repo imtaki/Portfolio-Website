@@ -68,7 +68,7 @@ const TechStack = () => {
       timeoutsRef.current.push(endTimeout);
     };
 
-    const startTimeout = setTimeout(animateNextPath, 1000);
+    const startTimeout = setTimeout(animateNextPath, 5500);
     timeoutsRef.current.push(startTimeout);
 
     return () => {
@@ -151,21 +151,9 @@ const TechStack = () => {
     return { x, y };
   };
 
-  // Generate quadratic bezier curve path
+  // Generate straight line path
   const generateCurvePath = (fromPos, toPos) => {
-    const dx = toPos.x - fromPos.x;
-    const dy = toPos.y - fromPos.y;
-    const distance = Math.sqrt(dx * dx + dy * dy);
-    
-    // Control point offset for curve - larger distance = bigger curve
-    const offsetDistance = distance * 0.3;
-    const angle = Math.atan2(dy, dx);
-    const perpAngle = angle + Math.PI / 2;
-    
-    const controlX = (fromPos.x + toPos.x) / 2 + Math.cos(perpAngle) * offsetDistance;
-    const controlY = (fromPos.y + toPos.y) / 2 + Math.sin(perpAngle) * offsetDistance;
-    
-    return `M ${fromPos.x} ${fromPos.y} Q ${controlX} ${controlY} ${toPos.x} ${toPos.y}`;
+    return `M ${fromPos.x} ${fromPos.y} L ${toPos.x} ${toPos.y}`;
   };
 
   return (
