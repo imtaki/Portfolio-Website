@@ -1,7 +1,6 @@
 import "./index.scss"; 
 import AnimatedLetters from "../AnimatedLetters/AnimatedLetters";
 import { useEffect, useState } from "react";
-import Loader from "react-loaders";
 import Timeline from "./Timeline";
 import Logo1 from "./Logo1";
 
@@ -12,7 +11,7 @@ export default function Work () {
     useEffect(() => {
         const timerId = setTimeout(() => {
           setLetterClass('text-animate-hover');
-        }, 3000);
+        }, 4000);
       
         return () => {
           clearTimeout(timerId);
@@ -30,7 +29,6 @@ export default function Work () {
                 </div>
             </div>
             <Logo1/>
-            <Loader type="pacman" />
         </>
     )
 }

@@ -1,7 +1,6 @@
 import './index.scss';
 import { useState, useEffect } from 'react';
 import { FaLinkedin } from "react-icons/fa";
-import Loader from 'react-loaders';
 import { FaSquareEnvelope } from "react-icons/fa6";
 import AnimatedLetters from '../AnimatedLetters/AnimatedLetters';
 
@@ -48,7 +47,6 @@ export default function Contact() {
                     </div>
                 </div>
             </div>
-            <Loader type="pacman" />
         </>
     );
 }

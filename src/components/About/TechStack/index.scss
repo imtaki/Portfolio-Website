@@ -58,15 +58,16 @@
   10% {
     opacity: 1;
   }
-  50% {
+  55% {
     stroke-dashoffset: 0;
     opacity: 1;
   }
-  90% {
+  80% {
+    stroke-dashoffset: 0;
     opacity: 1;
   }
   100% {
-    stroke-dashoffset: -100;
+    stroke-dashoffset: 0;
     opacity: 0;
   }
 }

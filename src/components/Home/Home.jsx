@@ -1,6 +1,5 @@
 import './index.scss';
 import Logo from '../../assets/images/logo.png'
-import Loader from 'react-loaders';
 import BigLogo from './Logo/Logo'
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -33,12 +32,12 @@ export default function Home () {
                 <br />
                 <AnimatedLetters letterClass={letterClass} strArray={hobbyArray} idx={21} />
                 </h1>
-                <h2>Applied Informatics, 2026 at University of Constantine the Philosopher</h2>
+                <h3> Bc. Student/Full-Stack Software Engineer</h3>
+                <h2>Computer Engineering MSc, 2028 at University of Technology and Economics in Budapest (BME)</h2>
                 <Link to="/contact" className='flat-button'>CONTACT ME</Link>
             </div>
             <BigLogo />
        </div>
-       <Loader type='pacman' />
        </>
     )
 }

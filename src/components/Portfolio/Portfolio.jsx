@@ -1,7 +1,6 @@
 import "./index.scss";
 import { useState, useEffect } from "react";
 import AnimatedLetters from "../AnimatedLetters/AnimatedLetters";
-import Loader from "react-loaders";
 import portfolioData from "../../data/portfolio.json"
 
 export default function Portfolio() {
@@ -52,7 +51,6 @@ export default function Portfolio() {
                     <div>{renderPortfolio(portfolioData.portfolio)}</div>
                 </div>
             </div>
-            <Loader type="pacman" />
         </>
     );
 }

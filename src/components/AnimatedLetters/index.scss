@@ -1,7 +1,7 @@
 .text-animate {
     display: inline-block;
     opacity: 0;
-    animation: bounceIn 1s 1s;
+    animation: bounceIn 0.8s 0.15s;
     animation-fill-mode: forwards;
     min-width: 10px;
 }

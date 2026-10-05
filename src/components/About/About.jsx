@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import Loader from 'react-loaders';
 import AnimatedLetters from '../AnimatedLetters/AnimatedLetters';
 import { FaReact, FaCss3, FaHtml5, FaPython, FaJava } from "react-icons/fa"
 import { IoLogoJavascript } from "react-icons/io5";
@@ -29,8 +28,8 @@ export default function About() {
                 <p>I&apos;m a software engineer focused on full-stack and front-end development. 
                     I build responsive, user-friendly applications using modern tools and frameworks. 
                     I enjoy solving problems, working in a team, writing clean code, and learning new technologies to improve my skills.
-                    <TechStack />
                 </p>
+                <TechStack />
                 <br />
             </div>
             <div className="stage-cube-cont">
@@ -56,7 +55,6 @@ export default function About() {
                 </div>
             </div>
         </div>
-        <Loader type='pacman' />
         </>
     )
 }
